@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/evKoval/BookShop/issues"
   },
-  "homepage": "https://github.com/evKoval/BookShop#readme"
+  "homepage": "https://github.com/evKoval/BookShop#readme",
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0"
+  }
 }
