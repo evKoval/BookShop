@@ -1,0 +1,19 @@
+{
+  "name": "book-shop",
+  "version": "1.0.0",
+  "description": "Boilerplate for book-shop React app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evKoval/BookShop.git"
+  },
+  "author": "Evgeny Koval",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evKoval/BookShop/issues"
+  },
+  "homepage": "https://github.com/evKoval/BookShop#readme"
+}
