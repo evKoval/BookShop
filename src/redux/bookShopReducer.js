@@ -38,3 +38,4 @@ export const toggleIsFetching = isFetching => ({
           dispatch(setBooks(data.books))  
       }
   }
+  export default bookShopReducer;
