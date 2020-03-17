@@ -9,7 +9,7 @@ import { requestBooks } from '../redux/bookShopReducer.js'
     render() {
         return (
             <div>
-                <h1>Books will be here</h1>
+               {this.props.books.map(book => )}
             </div>
         )
     }
