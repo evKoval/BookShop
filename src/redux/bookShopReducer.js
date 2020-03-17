@@ -1,7 +1,7 @@
 import { booksAPI } from "../api/api";
 
 const SET_BOOKS = "SET_BOOKS";
-const TOOGLE_IS_FETCHING = "TOOGLE_IS_FETCHING";
+const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
   books: [],
@@ -10,7 +10,7 @@ let initialState = {
 
 const bookShopReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_USERS:
+    case SET_BOOKS:
       return { ...state, books: action.books };
 
     case TOGGLE_IS_FETCHING:

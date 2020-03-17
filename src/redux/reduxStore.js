@@ -1,5 +1,6 @@
 import { combineReducers, compose, applyMiddleware, createStore } from "redux";
 import bookShopReducer from "./bookShopReducer";
+import thunkMiddleware from "redux-thunk";
 
 let reducers = combineReducers({
     bookShopPage: bookShopReducer
