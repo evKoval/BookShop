@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { requestBooks } from '../redux/bookShopReducer.js'
+import BookCard from './BookCard.jsx';
 
  class BooksContainer extends Component {
     componentDidMount(){
@@ -9,7 +10,7 @@ import { requestBooks } from '../redux/bookShopReducer.js'
     render() {
         return (
             <div>
-               {this.props.books.map(book => )}
+               {this.props.books.map(book => (<BookCard book={book} key={book.isbn13}/>))}
             </div>
         )
     }
