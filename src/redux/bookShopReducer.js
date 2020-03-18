@@ -1,6 +1,9 @@
+import "regenerator-runtime/runtime";
 import { booksAPI } from "../api/api";
+import {takeEvery, put, call} from 'redux-saga/effects'
 
 const SET_BOOKS = "SET_BOOKS";
+const GET_BOOKS = "GET_BOOKS";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 let initialState = {
@@ -24,18 +27,20 @@ const bookShopReducer = (state = initialState, action) => {
   }
 };
 
-export const setBooks = books => ({type: SET_BOOKS, books})
+export const setBooks = books => ({ type: SET_BOOKS, books });
+export const getBooks = () => ({ type: GET_BOOKS });
 export const toggleIsFetching = isFetching => ({
-    type: TOGGLE_IS_FETCHING,
-    isFetching
-  });
+  type: TOGGLE_IS_FETCHING,
+  isFetching
+});
 
-  export const requestBooks = () => {
-      return async dispatch =>{
-          dispatch(toggleIsFetching(true));
-          let data  = await booksAPI.getBooks();
-          dispatch(toggleIsFetching(false));
-          dispatch(setBooks(data.books))  
-      }
-  }
-  export default bookShopReducer;
+function* workerGetBooks(){
+  const data = yield call(booksAPI.getBooks);
+  yield put(setBooks(data.books));
+}
+
+export function* watchGetBooks(){
+  yield takeEvery(GET_BOOKS, workerGetBooks);
+}
+
+export default bookShopReducer;

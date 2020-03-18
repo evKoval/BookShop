@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { requestBooks } from '../redux/bookShopReducer.js'
+import { getBooks } from '../redux/bookShopReducer.js'
 import BookCard from './BookCard.jsx';
 
  class BooksContainer extends Component {
     componentDidMount(){
-        this.props.requestBooks();
+        this.props.getBooks();
+        console.log(this.props.books);
     }
     render() {
         return (
@@ -23,4 +24,4 @@ const mapStateToProps = state =>{
     }
 }
 
-export default connect(mapStateToProps, {requestBooks})(BooksContainer)
+export default connect(mapStateToProps, {getBooks})(BooksContainer)
