@@ -1,9 +1,9 @@
 import React from "react";
 import { booksAPI } from "../api/api";
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, toggleModal }) => {
   return (
-    <div>
+    <div onClick={() => toggleModal(book)}>
       <h4>{book.title}</h4>
       <img src={book.image} alt="" />
       <div>isbn13: {book.isbn13}</div>
