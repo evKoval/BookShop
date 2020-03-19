@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 
 export default class Modal extends Component {
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this.root = document.createElement("div");
     document.body.appendChild(this.root);
   }
