@@ -1,6 +1,4 @@
 import "regenerator-runtime/runtime";
-import { booksAPI } from "../api/api";
-import { takeEvery, put, call } from "redux-saga/effects";
 
 const ADD_TO_CART = "ADD_TO_CART";
 

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getBooks, addToCart } from "../redux/bookShopReducer.js";
+import { getBooks } from "../redux/bookShopReducer.js";
+import { addToCart } from "../redux/cartReducer.js";
 import BookCard from "./BookCard.jsx";
 import Modal from "./Modal.jsx";
 
