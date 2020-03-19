@@ -1,7 +1,8 @@
 import React from "react";
 import { booksAPI } from "../api/api";
+import { addToCart } from "../redux/bookShopReducer";
 
-const BookCard = ({ book, toggleModal }) => {
+const BookCard = ({ book, toggleModal = () => {} }) => {
   return (
     <div onClick={() => toggleModal(book)}>
       <h2>{book.title}</h2>
