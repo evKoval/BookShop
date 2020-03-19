@@ -4,8 +4,8 @@ import { booksAPI } from "../api/api";
 const BookCard = ({ book, toggleModal }) => {
   return (
     <div onClick={() => toggleModal(book)}>
-      <h4>{book.title}</h4>
-      <img src={book.image} alt="" />
+      <h2>{book.title}</h2>
+      <img src={book.image} alt="book img" />
       <div>isbn13: {book.isbn13}</div>
       <div>price: {book.price}$</div>
     </div>

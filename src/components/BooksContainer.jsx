@@ -10,7 +10,6 @@ class BooksContainer extends Component {
     selectedBook: {}
   };
   toggleModal = book => {
-    console.log(book);
     this.setState(state => ({ isModalOpen: !state.isModalOpen, selectedBook: book }));
   };
   componentDidMount() {
@@ -18,6 +17,7 @@ class BooksContainer extends Component {
     console.log(this.props.books);
   }
   render() {
+    let selectedBook = this.state.selectedBook;
     return (
       <div>
         {this.props.books.map(book => (
@@ -25,7 +25,9 @@ class BooksContainer extends Component {
         ))}
         {this.state.isModalOpen && (
           <Modal onClose={this.toggleModal}>
-            <h1>{this.state.selectedBook.title}</h1>
+            <BookCard toggleModal={this.toggleModal} book={this.state.selectedBook} />
+            <p>{selectedBook.subtitle}</p>
+            <a href={selectedBook.url}>ItBook link</a>
           </Modal>
         )}
       </div>

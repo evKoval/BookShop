@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
+import styles from './Modal.modules.css'
 
 export default class Modal extends Component {
   UNSAFE_componentWillMount() {
@@ -11,9 +12,9 @@ export default class Modal extends Component {
   }
   render() {
     return ReactDOM.createPortal(
-      <div>
+      <div className={styles.modalWindow} >
         <button onClick={this.props.onClose}> Close </button>
-        <h1>Modal Window</h1>
+        <h4>Modal Window</h4>
         {this.props.children}
       </div>,
       this.root
