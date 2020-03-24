@@ -32,7 +32,7 @@ class BooksContainer extends Component {
             <AddToCartInput
               book={book}
               addToCart={this.props.addToCart}
-              quantity={this.props.cart.reduce(
+              inCart={this.props.cart.reduce(
                 (count, thisBook) => count + (book.isbn13 === thisBook.isbn13 ? 1 : 0),
                 0
               )}
