@@ -4,7 +4,7 @@ import { addToCart } from "../redux/bookShopReducer";
 
 const BookCard = ({ book, toggleModal = () => {} }) => {
   return (
-    <div onClick={() => toggleModal(book)}>
+    <div onClick={toggleModal.bind(this, book)}>
       <h2>{book.title}</h2>
       <img src={book.image} alt="book img" />
       <div>isbn13: {book.isbn13}</div>

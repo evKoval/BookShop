@@ -4,6 +4,7 @@ import { getBooks } from "../redux/bookShopReducer.js";
 import { addToCart } from "../redux/cartReducer.js";
 import BookCard from "./BookCard.jsx";
 import Modal from "./Modal.jsx";
+import AddToCartInput from "./AddToCartInput.jsx";
 
 class BooksContainer extends Component {
   state = {
@@ -22,8 +23,20 @@ class BooksContainer extends Component {
       <div>
         {this.props.books.map(book => (
           <div key={book.isbn13}>
-            <BookCard toggleModal={this.toggleModal} addToCart={this.addToCart} book={book}  />
-            <button  onClick={() => this.props.addToCart(book, 1)}>Add to cart</button>
+            <BookCard toggleModal={this.toggleModal} book={book} />
+            <div>
+              {this.props.cart.reduce((count, thisBook) => count + (book.isbn13 === thisBook.isbn13 ? 1 : 0), 0)} in
+              cart
+            </div>
+            {/* <button onClick={() => this.props.addToCart(book, 1)}>Add to cart</button> */}
+            <AddToCartInput
+              book={book}
+              addToCart={this.props.addToCart}
+              quantity={this.props.cart.reduce(
+                (count, thisBook) => count + (book.isbn13 === thisBook.isbn13 ? 1 : 0),
+                0
+              )}
+            />
           </div>
         ))}
         {this.state.isModalOpen && (
@@ -41,7 +54,8 @@ class BooksContainer extends Component {
 const mapStateToProps = state => {
   return {
     books: state.bookShopPage.books,
-    isFetching: state.bookShopPage.isFetching
+    isFetching: state.bookShopPage.isFetching,
+    cart: state.cartPage.cart
   };
 };
 
