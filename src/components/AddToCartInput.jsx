@@ -9,7 +9,8 @@ const AddToCartInput = props => {
   });
 
   const onSubmit = input => {
-      debugger
+    console.log(+input.quantity + +props.inCart);
+    debugger;
     props.addToCart(props.book, input.quantity);
   };
 
@@ -22,7 +23,7 @@ const AddToCartInput = props => {
           min="1"
           ref={register({
             // max: { value: 3, message: "not enough books in warehouse" }
-            // validate: value => props.inCart + value <= 3 || 'not enough books in warehouse'
+            validate: value => +props.inCart + +value <= 3 || "not enough books in warehouse"
           })}
         />
         <button type="submit">Add to cart</button>

@@ -13,7 +13,7 @@ class CartContainer extends Component {
           <div key={book.isbn13}>
             <BookCard toggleModal={this.toggleModal} book={book} />
             <div>
-              {this.props.cart.reduce((count, thisBook) => count + (book.isbn13 === thisBook.isbn13 ? 1 : 0), 0)} in
+              {this.props.cart.reduce((count, thisBook) => count + (book.isbn13 === thisBook.isbn13 ? +thisBook.quantity : 0), 0)} in
               cart
             </div>
           </div>
